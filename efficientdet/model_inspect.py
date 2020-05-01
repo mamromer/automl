@@ -28,6 +28,15 @@ from absl import logging
 import numpy as np
 from PIL import Image
 import tensorflow.compat.v1 as tf
+
+from tf import ConfigProto
+from tf import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.8
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+
 from typing import Text, Tuple, List
 
 import hparams_config
